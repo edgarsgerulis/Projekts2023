@@ -1,9 +1,8 @@
 <?php
 $l = $_POST["login"];
-$p = $a = $_POST["password"];
-
+$p = $a = (md5($_POST["password"]))  ;
 include("cfg.php");
-mysqli = mysqli_query("SELECT * FROM users WHERE (login="$l") AND (password="$p")");
+$result = $mysqli->query("SELECT * FROM users WHERE login='$l' and password='$p'");
 if (mysqli_num_rows($result) > 0){
     echo "GOOOD!!!!";
 }
